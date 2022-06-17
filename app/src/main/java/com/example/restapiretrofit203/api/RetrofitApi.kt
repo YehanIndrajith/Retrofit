@@ -1,7 +1,9 @@
 package com.example.restapiretrofit203.api
 
-import android.telecom.Call
-
+import retrofit2.Call
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
 
 
 interface RetrofitApi {
@@ -18,11 +20,11 @@ companion object{
 
     fun create(): RetrofitApi{
 
-        val retrofit = Retrofit.Bilder()
+        val retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BASE_URL)
             .build()
-        return retrofit.create(RetrofitAPI::class.java)
+        return retrofit.create(RetrofitApi::class.java)
 
     }
 
